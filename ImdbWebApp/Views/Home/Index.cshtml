@@ -1,0 +1,32 @@
+﻿@model ImdbWebApp.Models.Movie[]
+@{
+    ViewData["Title"] = "Home Page";
+    var movies = Model;
+}
+    <form action="" method="get">
+        <input type="text" name="search" value="" placeholder="Search by title" class="SearchInput" />
+        <button class="SearchButton" type="submit">Search</button>
+    </form>
+
+    @if(movies != null)
+    {
+<div class="Result">
+    @foreach (var movie in movies)
+    {
+    <div class="Movie">
+        <div>
+            <div class="PosterContainer">
+                <img class="Poster" src="@movie.Poster" alt="Alternate Text" />
+            </div>
+            <p class="Title"> @movie.Title </p>
+            @*<p class="Year">Release: @movie.Year</p>*@
+        </div>
+        
+
+
+    </div>
+    }
+
+</div>
+    }
+    
